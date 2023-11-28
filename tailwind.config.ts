@@ -14,8 +14,8 @@ const config: Config = {
         orange: colors.orange,
         primary: "#ff6600",
         secondary: "#f3486a",
-        header: "#202a39",
-        heading: "#011324",
+        header: "#071425d1",
+        heading: "#202a39"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

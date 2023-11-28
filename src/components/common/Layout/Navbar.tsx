@@ -11,6 +11,7 @@ import {
 } from "react-icons/md";
 import { IoIosFootball } from "react-icons/io";
 import { GiHorseHead } from "react-icons/gi";
+import { twMerge } from "tailwind-merge";
 
 const navList = [
   {
@@ -56,11 +57,13 @@ const Navbar = () => {
           {navList.map((item) => (
             <span
               key={item.name}
-              className="flex gap-2 items-center font-semibold"
+              className={twMerge(
+                "flex gap-2 items-center font-semibold cursor-pointer",
+                active === item.name && "text-blue-400"
+              )}
+              onClick={() => setActive(item.name)}
             >
-              <span className={active === item.name ? "" : "text-blue-400"}>
-                {item.icon}
-              </span>
+              <span>{item.icon}</span>
               {item.name}
             </span>
           ))}
@@ -68,8 +71,12 @@ const Navbar = () => {
         <div className="flex gap-4">
           {navList.map((item) => (
             <div
-              className="flex flex-col items-center justify-center shadowm-2xl border border-primary rounded gap-2 px-8 lg:hidden "
+              className={twMerge(
+                "flex flex-col items-center justify-center shadowm-2xl border border-heading rounded gap-2 px-8 lg:hidden",
+                active === item.name ? "border-primary" : "text-blue-400"
+              )}
               key={item.name}
+              onClick={() => setActive(item.name)}
             >
               <span>{item.icon}</span>
               <span>{item.name}</span>

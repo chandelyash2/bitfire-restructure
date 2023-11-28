@@ -16,7 +16,7 @@ export const LiveHighlights = () => {
           <span
             key={item.name}
             className={twMerge(
-              "flex  gap-2 items-center font-semibold",
+              "flex gap-2 items-center font-semibold cursor-pointer",
               activeHiglight === item.name && "text-primary"
             )}
           >

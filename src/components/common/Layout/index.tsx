@@ -20,7 +20,7 @@ export const Layout = ({ children }: LayoutProps) => {
         menuActive ? "overflow-hidden" : "overflow-scroll"
       )}
     >
-      <div className="flex flex-col gap-2 ">
+      <div className="fixedflex flex-col gap-2 ">
         <Header menuActive={menuActive} setMenuActive={setMenuActive} />
         <Navbar />
       </div>

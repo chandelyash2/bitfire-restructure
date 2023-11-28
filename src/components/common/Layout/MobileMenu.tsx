@@ -14,7 +14,7 @@ const menuList = [
 ];
 export const MobileMenu = () => {
   return (
-    <div className="fixed bottom-0 bg-header h-14 lg:hidden w-full">
+    <div className="fixed bottom-0 bg-heading h-14 lg:hidden w-full">
       <Container>
         <div className="flex items-center justify-between font-semibold">
           {menuList.map((item) => (
