@@ -5,10 +5,13 @@ import Container from "../Container";
 import { PrimaryButton } from "../PrimaryButton";
 import { SecondaryButton } from "../SecondaryButton";
 
-const Header = () => {
-  const [menuActive, setMenuActive] = useState(false);
+interface HeaderProp {
+  menuActive: boolean;
+  setMenuActive: (value: boolean) => void;
+}
+const Header = ({ menuActive, setMenuActive }: HeaderProp) => {
   return (
-    <header className="bg-header shadow-xl">
+    <header className="bg-header shadow-xl ">
       <Container>
         <div className="hidden lg:flex justify-between items-center">
           <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
@@ -17,7 +20,7 @@ const Header = () => {
             <SecondaryButton label="Signup" link="/" />
           </div>
         </div>
-        <div className="flex justify-between items-center lg:hidden">
+        <div className="flex justify-between items-center lg:hidden ">
           <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
           <Image
             src="/img/hamburger.png"
