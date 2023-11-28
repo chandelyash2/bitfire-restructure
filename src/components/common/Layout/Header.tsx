@@ -30,7 +30,7 @@ const Header = ({ menuActive, setMenuActive }: HeaderProp) => {
             onClick={() => setMenuActive(true)}
           />
           {menuActive && (
-            <div className="flex flex-col absolute top-0 left-0 z-[999] h-screen bg-[#141c33] w-full p-4 gap-4">
+            <div className="flex flex-col absolute top-0 left-0 z-[999] h-[100vh] bg-[#141c33] w-full p-4 gap-4">
               <div className="flex justify-between items-center">
                 <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
                 <Image

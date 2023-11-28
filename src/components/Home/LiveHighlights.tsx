@@ -26,7 +26,7 @@ export const LiveHighlights = () => {
           </span>
         ))}
       </div>
-      <div className="border-b  p-2">
+      <div className="border-b p-2">
         <span className="flex items-center gap-2">
           <span>{selectedGame && selectedGame.icon}</span>
           {selectedGame && selectedGame.name}
