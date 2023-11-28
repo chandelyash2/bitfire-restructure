@@ -19,6 +19,7 @@ export const LiveHighlights = () => {
               "flex gap-2 items-center font-semibold cursor-pointer",
               activeHiglight === item.name && "text-primary"
             )}
+            onClick={() => setActiveHiglight(item.name)}
           >
             <span>{item.icon}</span>
             {item.name}

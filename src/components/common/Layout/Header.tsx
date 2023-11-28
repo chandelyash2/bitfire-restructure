@@ -11,7 +11,7 @@ interface HeaderProp {
 }
 const Header = ({ menuActive, setMenuActive }: HeaderProp) => {
   return (
-    <header className="bg-header shadow-xl ">
+    <header className="bg-header shadow-xl">
       <Container>
         <div className="hidden lg:flex justify-between items-center">
           <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
@@ -20,7 +20,7 @@ const Header = ({ menuActive, setMenuActive }: HeaderProp) => {
             <SecondaryButton label="Signup" link="/" />
           </div>
         </div>
-        <div className="flex justify-between items-center lg:hidden ">
+        <div className="flex justify-between items-center lg:hidden">
           <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
           <Image
             src="/img/hamburger.png"
@@ -30,7 +30,7 @@ const Header = ({ menuActive, setMenuActive }: HeaderProp) => {
             onClick={() => setMenuActive(true)}
           />
           {menuActive && (
-            <div className="flex flex-col absolute top-0 left-0 z-[999] h-full bg-[#141c33] w-full p-4 gap-4">
+            <div className="flex flex-col absolute top-0 left-0 z-[999] h-screen bg-[#141c33] w-full p-4 gap-4">
               <div className="flex justify-between items-center">
                 <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
                 <Image
