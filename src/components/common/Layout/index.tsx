@@ -29,7 +29,7 @@ export const Layout = ({ children }: LayoutProps) => {
         {children}
         <BetSlip />
       </div>
-      <MobileMenu />
+      {!menuActive && <MobileMenu />}
       <Footer />
     </div>
   );
