@@ -4,7 +4,32 @@ import { games } from "../common/Layout/Sidebar";
 import { twMerge } from "tailwind-merge";
 import { TeamOddsCard } from "../common/TeamOddsCard";
 import { CMSModal } from "@/context";
-
+const teamdOdds = [
+  {
+    team1: "India",
+    team2: "Australia",
+    back1: 1.1,
+    back2: 2.1,
+    lay1: 1.4,
+    lay2: 1.5,
+  },
+  {
+    team1: "Srilanka",
+    team2: "Afghanistan",
+    back1: 1.1,
+    back2: 2.1,
+    lay1: 3.4,
+    lay2: 1.5,
+  },
+  {
+    team1: "Bangladesh",
+    team2: "Newzeland",
+    back1: 1.5,
+    back2: 2.4,
+    lay1: 1.2,
+    lay2: 1.9,
+  },
+];
 export const TrendingHiglights = () => {
   const { activeHiglight, setActiveHiglight } = useContext(CMSModal);
   const selectedGame = games.find((item) => item.name === activeHiglight);
@@ -33,30 +58,9 @@ export const TrendingHiglights = () => {
           {selectedGame && selectedGame.name}
         </span>
       </div>
-      <TeamOddsCard
-        team1="India"
-        team2="Australia"
-        back1={1.1}
-        back2={2.1}
-        lay1={1.4}
-        lay2={1.5}
-      />
-      <TeamOddsCard
-        team1="Srilanka"
-        team2="Afghanistan"
-        back1={1.1}
-        back2={2.1}
-        lay1={1.4}
-        lay2={1.5}
-      />
-      <TeamOddsCard
-        team1="India"
-        team2="Australia"
-        back1={1.1}
-        back2={2.1}
-        lay1={1.4}
-        lay2={1.5}
-      />
+      {teamdOdds.map((item, i) => (
+        <TeamOddsCard data={item} key={i} />
+      ))}
     </div>
   );
 };

@@ -1,5 +1,9 @@
 "use client";
-import { GamesTypeEnum } from "@/components/common/types";
+import {
+  BetSlipType,
+  GamesTypeEnum,
+  MenuListEnum,
+} from "@/components/common/types";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -11,6 +15,9 @@ export const CMSContext = ({ children }: { children: React.ReactNode }) => {
   );
   const [menuActive, setMenuActive] = useState<boolean>(false);
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+  const [selectedBetData, setSelectedBetData] = useState<BetSlipType[]>([]);
+  const [selectedMenu, setSelectedMenu] = useState<MenuListEnum | string>("");
+
   return (
     <CMSModal.Provider
       value={{
@@ -20,6 +27,10 @@ export const CMSContext = ({ children }: { children: React.ReactNode }) => {
         setMenuActive,
         mobileMenu,
         setMobileMenu,
+        selectedBetData,
+        setSelectedBetData,
+        selectedMenu,
+        setSelectedMenu,
       }}
     >
       {children}

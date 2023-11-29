@@ -11,6 +11,7 @@ import { MenuListEnum } from "../types";
 import { MenuPopup } from "../MenuPopup";
 import Sidebar from "./Sidebar";
 import { CMSModal } from "@/context";
+import { BetSlip } from "../BetSlip";
 
 const menuList = [
   {
@@ -27,8 +28,7 @@ const menuList = [
   },
 ];
 export const MobileMenu = () => {
-  const { setMobileMenu } = useContext(CMSModal);
-  const [selectedMenu, setSelectedMenu] = useState("");
+  const { setMobileMenu,selectedMenu, setSelectedMenu } = useContext(CMSModal);
 
   return (
     <div>
@@ -55,7 +55,14 @@ export const MobileMenu = () => {
         </Container>
       </div>
       {selectedMenu == MenuListEnum.EVENTS && (
-        <MenuPopup close={() => setSelectedMenu("")}>cdas</MenuPopup>
+        <MenuPopup close={() => setSelectedMenu("")}>
+          <Sidebar />
+        </MenuPopup>
+      )}
+      {selectedMenu == MenuListEnum.MYBET && (
+        <MenuPopup close={() => setSelectedMenu("")}>
+          <BetSlip />
+        </MenuPopup>
       )}
     </div>
   );

@@ -28,9 +28,13 @@ export const Layout = ({ children }: LayoutProps) => {
         <Navbar />
       </div>
       <div className="flex gap-2">
-        <Sidebar />
+        <div className="hidden lg:block">
+          <Sidebar />
+        </div>
         {children}
-        <BetSlip />
+        <div className="hidden lg:block">
+          <BetSlip />
+        </div>
       </div>
       {!menuActive && <MobileMenu />}
       <Footer />

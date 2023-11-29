@@ -37,7 +37,7 @@ const Sidebar = () => {
   const { activeHiglight, setActiveHiglight } = useContext(CMSModal);
 
   return (
-    <div className="hidden lg:block bg-header h-full w-[350px]">
+    <div className="bg-header h-full lg:w-[300px]">
       <div className="font-semibold flex flex-col gap-2">
         <h2 className="flex gap-2 bg-heading p-2 border-b">
           <span className="text-blue-400">
