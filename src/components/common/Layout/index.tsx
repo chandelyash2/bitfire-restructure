@@ -14,8 +14,6 @@ interface LayoutProps {
 }
 export const Layout = ({ children }: LayoutProps) => {
   const { menuActive, mobileMenu } = useContext(CMSModal);
-  console.log(mobileMenu, "mosss");
-
   return (
     <div
       className={twMerge(
