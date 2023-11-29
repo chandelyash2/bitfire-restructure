@@ -8,7 +8,7 @@ export const LiveHighlights = () => {
   const selectedGame = games.find((item) => item.name === activeHiglight);
   return (
     <div className="bg-header p-2 rounded-lg">
-      <h2 className="text-blue-400 text-lg font-semibold p-2 border-b">
+      <h2 className="text-blue-400 lg:text-lg font-semibold p-2 border-b">
         Live Highlights
       </h2>
       <div className="flex gap-6 p-2 border-b overflow-auto">
