@@ -27,7 +27,7 @@ const menuList = [
   },
 ];
 export const MobileMenu = () => {
-  const { mobileMenu, setMobileMenu } = useContext(CMSModal);
+  const { setMobileMenu } = useContext(CMSModal);
   const [selectedMenu, setSelectedMenu] = useState("");
 
   return (
@@ -54,7 +54,9 @@ export const MobileMenu = () => {
           </div>
         </Container>
       </div>
-      {selectedMenu == MenuListEnum.EVENTS && <MenuPopup>cdas</MenuPopup>}
+      {selectedMenu == MenuListEnum.EVENTS && (
+        <MenuPopup close={() => setSelectedMenu("")}>cdas</MenuPopup>
+      )}
     </div>
   );
 };
