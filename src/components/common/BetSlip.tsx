@@ -8,13 +8,13 @@ import { twMerge } from "tailwind-merge";
 export const BetSlip = () => {
   const { selectedBetData } = useContext(CMSModal);
   return (
-    <div className="bg-header lg:w-[300px] lg:h-auto">
+    <div className="bg-header lg:w-[300px] lg:h-auto z-[999]">
       <h3 className="bg-heading p-2 text-center">Bet Slip</h3>
       {selectedBetData.length > 0 ? (
         selectedBetData.map((item: BetSlipType, i: number) => (
           <div className="flex flex-col gap-2 mt-6 p-2" key={i}>
             <h3 className="font-semibold">{item.label}</h3>
-            <div className={twMerge("flex flex-col gap-4 p-2 text-black text-sm",item.selectedBet==="back"?"bg-blue-300":" bg-pink-300")}>
+            <div className={twMerge("flex flex-col gap-4 p-2 text-black text-sm z-[999]",item.selectedBet==="back"?"bg-blue-300":" bg-pink-300")}>
               <span className="font-semibold">{item.selectedTeam}</span>
               <div className="flex justify-between items-center">
                 <div className="flex flex-col gap-1">
