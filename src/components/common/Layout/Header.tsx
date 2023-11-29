@@ -1,15 +1,13 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Container from "../Container";
 import { PrimaryButton } from "../PrimaryButton";
 import { SecondaryButton } from "../SecondaryButton";
+import { CMSModal } from "@/context";
+const Header = () => {
+  const { menuActive, setMenuActive } = useContext(CMSModal);
 
-interface HeaderProp {
-  menuActive: boolean;
-  setMenuActive: (value: boolean) => void;
-}
-const Header = ({ menuActive, setMenuActive }: HeaderProp) => {
   return (
     <header className="bg-header shadow-xl">
       <Container>

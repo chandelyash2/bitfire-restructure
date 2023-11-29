@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { games } from "../common/Layout/Sidebar";
 import { twMerge } from "tailwind-merge";
 import { TeamOddsCard } from "../common/TeamOddsCard";
+import { CMSModal } from "@/context";
 
 export const LiveHighlights = () => {
-  const [activeHiglight, setActiveHiglight] = useState("Cricket");
+  const { activeHiglight, setActiveHiglight } = useContext(CMSModal);
   const selectedGame = games.find((item) => item.name === activeHiglight);
   return (
     <div className="bg-header p-2 rounded-lg">
