@@ -19,7 +19,7 @@ export const BetSlip = () => {
               <div className="flex justify-between items-center">
                 <div className="flex flex-col gap-1">
                   <label>Odds</label>
-                  <input value={item.odds} className="w-14" type="number" />
+                  <input value={item.odds} className="w-14" type="number" onChange={()=>null} />
                 </div>
                 <div className="flex flex-col gap-1">
                   <span>Stake</span>
