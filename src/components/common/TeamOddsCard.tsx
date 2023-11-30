@@ -15,14 +15,14 @@ export const TeamOddsCard = ({ data }: TeamOddsCardProp) => {
   } = useContext(CMSModal);
 
   return (
-    <div className="grid grid-cols-2 p-3 items-center border-b overflow-auto">
+    <div className="flex gap-2 p-3 items-center border-b overflow-auto">
       <div className="flex flex-col flex-1 gap-2 lg:flex-row">
         <h3 className="gap-1 font-semibold">{data.team1}</h3>
         <span className="text-primary font-semibold">VS</span>
         <h3>{data.team2}</h3>
       </div>
       <div className="flex gap-2">
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-1 items-center">
           <span
             className="bg-blue-300 p-1 rounded-lg w-10 lg:w-14 text-center text-sm lg:text-md cursor-pointer"
             onClick={() => {

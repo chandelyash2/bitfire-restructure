@@ -10,7 +10,7 @@ export const MenuPopup = ({ children, close }: MenuPopupProps) => {
   const { setMobileMenu } = useContext(CMSModal);
 
   return (
-    <div className="none fixed top-0 left-0 w-full h-full bg-[#141c33]">
+    <div className="none fixed top-0 left-0 w-full h-full bg-[#141c33] lg:hidden">
       <div className="block">
         <Header />
         <span
