@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="pb-20 p-4 bg-header lg:p-6">
+    <footer className="pb-20 p-4 bg-header lg:p-6 h-auto">
       <Container>
         <div className="flex flex-col gap-4 items-center justify-between lg:flex-row">
           <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-    </div>
+    </footer>
   );
 };
 
