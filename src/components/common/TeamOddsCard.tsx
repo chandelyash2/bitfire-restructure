@@ -7,8 +7,12 @@ interface TeamOddsCardProp {
   data: TeamOddsType;
 }
 export const TeamOddsCard = ({ data }: TeamOddsCardProp) => {
-  const { selectedBetData, setSelectedBetData, setSelectedMenu } =
-    useContext(CMSModal);
+  const {
+    selectedBetData,
+    setSelectedBetData,
+    setSelectedMenu,
+    setMobileMenu,
+  } = useContext(CMSModal);
 
   return (
     <div className="grid grid-cols-2 p-3 items-center border-b overflow-auto">
@@ -32,6 +36,7 @@ export const TeamOddsCard = ({ data }: TeamOddsCardProp) => {
                 },
               ]);
               setSelectedMenu(MenuListEnum.MYBET);
+              setMobileMenu(true);
             }}
           >
             {data.back1}
@@ -44,11 +49,12 @@ export const TeamOddsCard = ({ data }: TeamOddsCardProp) => {
                 {
                   label: `${data.team1} VS ${data.team2} `,
                   selectedTeam: data.team1,
-                  selectedBet: "back",
+                  selectedBet: "lay",
                   odds: data.back1,
                 },
               ]);
               setSelectedMenu(MenuListEnum.MYBET);
+              setMobileMenu(true);
             }}
           >
             {data.lay1}
@@ -67,6 +73,7 @@ export const TeamOddsCard = ({ data }: TeamOddsCardProp) => {
                 },
               ]);
               setSelectedMenu(MenuListEnum.MYBET);
+              setMobileMenu(true);
             }}
           >
             {data.back2}
@@ -79,7 +86,7 @@ export const TeamOddsCard = ({ data }: TeamOddsCardProp) => {
                 {
                   label: `${data.team1} VS ${data.team2} `,
                   selectedTeam: data.team1,
-                  selectedBet: "back",
+                  selectedBet: "lay",
                   odds: data.back1,
                 },
               ]);

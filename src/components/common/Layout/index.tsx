@@ -14,6 +14,7 @@ interface LayoutProps {
 }
 export const Layout = ({ children }: LayoutProps) => {
   const { menuActive, mobileMenu } = useContext(CMSModal);
+  
   return (
     <div
       className={twMerge(
@@ -21,7 +22,7 @@ export const Layout = ({ children }: LayoutProps) => {
         menuActive || mobileMenu ? "overflow-hidden" : "overflow-scroll"
       )}
     >
-      <div className="fixedflex flex-col gap-2 ">
+      <div className="flex flex-col gap-2 ">
         <Header />
         <Navbar />
       </div>

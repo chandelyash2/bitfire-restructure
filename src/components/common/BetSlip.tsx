@@ -6,10 +6,10 @@ import { BetSlipType } from "./types";
 import { twMerge } from "tailwind-merge";
 
 export const BetSlip = () => {
-  const { selectedBetData } = useContext(CMSModal);
+  const { selectedBetData } = useContext(CMSModal);  
   return (
-    <div className="bg-header lg:w-[300px] lg:h-auto z-[999]">
-      <h3 className="bg-heading p-2 text-center">Bet Slip</h3>
+    <div className="bg-header lg:w-[300px] h-[600px] z-[999] overflow-auto mt-4">
+      <h3 className="bg-heading p-2 text-center font-semibold">Bet Slip</h3>
       {selectedBetData.length > 0 ? (
         selectedBetData.map((item: BetSlipType, i: number) => (
           <div className="flex flex-col gap-2 mt-6 p-2" key={i}>
