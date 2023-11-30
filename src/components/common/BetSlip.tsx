@@ -8,7 +8,7 @@ import { twMerge } from "tailwind-merge";
 export const BetSlip = () => {
   const { selectedBetData } = useContext(CMSModal);  
   return (
-    <div className="bg-header lg:w-[300px] h-[600px] z-[999] overflow-auto mt-4">
+    <div className="bg-header lg:w-[300px] h-[500px] z-[999] overflow-auto mt-4 py-10">
       <h3 className="bg-heading p-2 text-center font-semibold">Bet Slip</h3>
       {selectedBetData.length > 0 ? (
         selectedBetData.map((item: BetSlipType, i: number) => (

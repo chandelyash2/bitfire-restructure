@@ -22,7 +22,7 @@ export const MenuPopup = ({ children, close }: MenuPopupProps) => {
         >
           <MdClose />
         </span>
-        <div className="mt-10 w-full pb-8">{children}</div>
+        <div className="mt-10 w-full">{children}</div>
       </div>
     </div>
   );
