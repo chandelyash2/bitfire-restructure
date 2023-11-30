@@ -19,7 +19,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <div
       className={twMerge(
         "absolute top-0 w-full z-1 flex flex-col h-full justify-between",
-        menuActive || mobileMenu ? "overflow-hidden" : "overflow-scroll"
+        menuActive ? "overflow-hidden" : "overflow-scroll"
       )}
     >
       <div className="flex flex-col gap-2 ">
