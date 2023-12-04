@@ -3,42 +3,47 @@ import Image from "next/image";
 import React, { useContext, useState } from "react";
 import Container from "../Container";
 import { PrimaryButton } from "../PrimaryButton";
-import { SecondaryButton } from "../SecondaryButton";
 import { CMSModal } from "@/context";
 import { MdAccountCircle, MdLogout } from "react-icons/md";
 import Link from "next/link";
+import { deleteCookie } from "@/utils/cookies";
 const Header = () => {
-  const { menuActive, setMenuActive } = useContext(CMSModal);
-  const [login, setLogin] = useState(true);
+  const { menuActive, setMenuActive, userInfo, setLoginActive, setUserInfo } =
+    useContext(CMSModal);
 
   return (
     <header className="bg-header">
       <Container>
         <div className="hidden lg:flex justify-between items-center">
           <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
-          {login ? (
+          {userInfo ? (
             <div className="flex gap-4 items-center font-semibold">
               <h3>
                 Available Credit :
-                <span className="text-primary"> 2,223.06</span>
+                <span className="text-primary">{userInfo.availableCredit}</span>
               </h3>
-              <Link className="flex gap-2 items-center" href=''>
+              <Link className="flex gap-2 items-center" href="">
                 <span className="text-xl">
                   <MdAccountCircle />
                 </span>
                 Account
               </Link>
-              <Link className="flex gap-2 items-center" href=''>
+              <div
+                className="flex gap-2 items-center cursor-pointer"
+                onClick={() => {
+                  setUserInfo();
+                  deleteCookie("token");
+                }}
+              >
                 <span className="text-xl">
                   <MdLogout />
                 </span>
                 Logout
-              </Link>
+              </div>
             </div>
           ) : (
-            <div className="flex gap-4">
-              <PrimaryButton label="Login" link="/" />
-              <SecondaryButton label="Signup" link="/" />
+            <div onClick={() => setLoginActive(true)}>
+              <PrimaryButton label="Login" type="button" />
             </div>
           )}
         </div>
@@ -64,29 +69,46 @@ const Header = () => {
                   onClick={() => setMenuActive(false)}
                 />
               </div>
-              {login ? (
+              {userInfo ? (
                 <div className="flex flex-col gap-4 mt-10 font-semibold ">
                   <h3 className="border-b p-2 font-s">
                     Available Credit :
-                    <span className="text-primary"> 2,223.06</span>
+                    <span className="text-primary">
+                      {" "}
+                      {userInfo.availableCredit}
+                    </span>
                   </h3>
-                  <Link href='' className="flex gap-2 items-center border-b p-2">
+                  <Link
+                    href=""
+                    className="flex gap-2 items-center border-b p-2"
+                  >
                     <span className="text-xl">
                       <MdAccountCircle />
                     </span>
                     Account
                   </Link>
-                  <Link  href='' className="flex gap-2 items-center border-b p-2">
+                  <div
+                    onClick={() => {
+                      setUserInfo();
+                      deleteCookie("token");
+                    }}
+                    className="flex gap-2 items-center border-b p-2"
+                  >
                     <span className="text-xl">
                       <MdLogout />
                     </span>
                     Logout
-                  </Link>
+                  </div>
                 </div>
               ) : (
-                <div className="absolute bottom-20 left-0 w-full flex flex-col mt-32 gap-6 p-4">
-                  <PrimaryButton label="Login" link="/" />
-                  <SecondaryButton label="Signup" link="/" />
+                <div
+                  className="absolute bottom-20 left-0 w-full p-4"
+                  onClick={() => {
+                    setLoginActive(true);
+                    setMenuActive(false);
+                  }}
+                >
+                  <PrimaryButton label="Login" type="button" />
                 </div>
               )}
             </div>

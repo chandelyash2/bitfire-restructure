@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const graphql = require("next-plugin-graphql");
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: true,
+};
+
+module.exports = () => {
+  const plugins = [graphql];
+  const config = plugins.reduce((acc, plugin) => plugin(acc), {
+    ...nextConfig,
+  });
+  return config;
+};

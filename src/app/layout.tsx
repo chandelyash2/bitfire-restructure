@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CMSContext } from "@/context";
+import { AppProps } from "next/app";
+import { Provider } from "@/client/apollo";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,13 +15,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  pageProps,
 }: {
   children: React.ReactNode;
+  pageProps: AppProps;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CMSContext>{children}</CMSContext>
+        <Provider>
+          <Toaster />
+          <CMSContext>{children}</CMSContext>
+        </Provider>
       </body>
     </html>
   );

@@ -1,0 +1,21 @@
+query Me {
+  me {
+    error {
+      message
+      code
+    }
+    user {
+      _id
+      availableCredit
+      bettingStatus
+      createdAt
+      creditLimit
+      loginStep
+      password
+      role
+      status
+      userName
+      transferStatus
+    }
+  }
+}

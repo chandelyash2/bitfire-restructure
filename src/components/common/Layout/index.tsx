@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Navbar from "./Navbar";
@@ -8,13 +8,19 @@ import { BetSlip } from "../BetSlip";
 import { MobileMenu } from "./MobileMenu";
 import { twMerge } from "tailwind-merge";
 import { CMSModal } from "@/context";
-
+import { LoginPopup } from "../LoginPopup";
+import { useMeQuery } from "@/graphql/generated/schema";
+import { Loader } from "../Loader";
 interface LayoutProps {
   children: React.ReactNode;
 }
+
 export const Layout = ({ children }: LayoutProps) => {
-  const { menuActive, mobileMenu } = useContext(CMSModal);
-  
+  const { menuActive, loginActive, setUserInfo } = useContext(CMSModal);
+  const { data, loading } = useMeQuery();
+  useEffect(() => {
+    setUserInfo(data?.me?.user);
+  }, [data, setUserInfo]);
   return (
     <div
       className={twMerge(
@@ -36,6 +42,8 @@ export const Layout = ({ children }: LayoutProps) => {
         </div>
       </div>
       {!menuActive && <MobileMenu />}
+      {loginActive && <LoginPopup />}
+      {loading && <Loader />}
       <Footer />
     </div>
   );
