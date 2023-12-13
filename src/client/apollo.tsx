@@ -12,12 +12,11 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
     link: new HttpLink({
       uri: process.env.NEXT_PUBLIC_API_URL,
       headers: {
-        Authorization: `Bearer ${getCookies('token')}`,
+        Authorization: `Bearer ${getCookies("token")}`,
       },
     }),
     cache: new InMemoryCache(),
-    ssrMode: typeof window === 'undefined',
-
+    ssrMode: typeof window === "undefined",
   });
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 };

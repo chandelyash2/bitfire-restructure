@@ -163,7 +163,7 @@ export type AuthUserLoginMutationVariables = Exact<{
 }>;
 
 
-export type AuthUserLoginMutation = { __typename?: 'Mutation', authUserLogin?: { __typename?: 'AuthPayload', token?: string | null, error?: { __typename?: 'ErrorType', message: string, code: string } | null, user?: { __typename?: 'User', _id: string, role?: string | null } | null } | null };
+export type AuthUserLoginMutation = { __typename?: 'Mutation', authUserLogin?: { __typename?: 'AuthPayload', token?: string | null, error?: { __typename?: 'ErrorType', message: string, code: string } | null, user?: { __typename?: 'User', _id: string, availableCredit?: number | null, bettingStatus?: boolean | null, createdAt?: any | null, creditLimit?: number | null, loginStep?: boolean | null, password?: string | null, role?: string | null, status?: string | null, userName: string, transferStatus?: boolean | null } | null } | null };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -181,7 +181,16 @@ export const AuthUserLoginDocument = gql`
     token
     user {
       _id
+      availableCredit
+      bettingStatus
+      createdAt
+      creditLimit
+      loginStep
+      password
       role
+      status
+      userName
+      transferStatus
     }
   }
 }

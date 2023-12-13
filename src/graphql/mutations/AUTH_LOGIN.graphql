@@ -7,7 +7,16 @@ mutation AuthUserLogin($input: AuthInput) {
     token
     user {
       _id
+      availableCredit
+      bettingStatus
+      createdAt
+      creditLimit
+      loginStep
+      password
       role
+      status
+      userName
+      transferStatus
     }
   }
 }

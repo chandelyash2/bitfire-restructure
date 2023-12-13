@@ -12,6 +12,9 @@ import { MenuPopup } from "../MenuPopup";
 import Sidebar from "./Sidebar";
 import { CMSModal } from "@/context";
 import { BetSlip } from "../BetSlip";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from 'next/navigation'
 
 const menuList = [
   {
@@ -22,14 +25,10 @@ const menuList = [
     name: "My Bet",
     icon: <MdAccountBalance />,
   },
-  {
-    name: "Account",
-    icon: <MdAccountCircle />,
-  },
 ];
 export const MobileMenu = () => {
-  const { setMobileMenu,selectedMenu, setSelectedMenu } = useContext(CMSModal);
-
+  const { setMobileMenu, selectedMenu, setSelectedMenu } = useContext(CMSModal);
+  const pathname = usePathname()
   return (
     <div>
       <div className="fixed bottom-0 bg-[#141c33] w-full lg:hidden z-10">
@@ -51,6 +50,15 @@ export const MobileMenu = () => {
                 {item.name}
               </h3>
             ))}
+            <Link href="/profile"  className={twMerge(
+                  "flex items-center gap-2",
+                  pathname === "/profile"&& "text-primary"
+                )}>
+              <span className="text-primary">
+                <MdAccountCircle />
+              </span>
+              Account
+            </Link>
           </div>
         </Container>
       </div>

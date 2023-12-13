@@ -7,22 +7,26 @@ import { CMSModal } from "@/context";
 import { MdAccountCircle, MdLogout } from "react-icons/md";
 import Link from "next/link";
 import { deleteCookie } from "@/utils/cookies";
+import { useRouter } from "next/navigation";
 const Header = () => {
   const { menuActive, setMenuActive, userInfo, setLoginActive, setUserInfo } =
     useContext(CMSModal);
+  const router = useRouter();
 
   return (
     <header className="bg-header">
       <Container>
         <div className="hidden lg:flex justify-between items-center">
-          <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
+          <Link href="/">
+            <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
+          </Link>
           {userInfo ? (
             <div className="flex gap-4 items-center font-semibold">
               <h3>
                 Available Credit :
                 <span className="text-primary">{userInfo.availableCredit}</span>
               </h3>
-              <Link className="flex gap-2 items-center" href="">
+              <Link className="flex gap-2 items-center" href="/profile">
                 <span className="text-xl">
                   <MdAccountCircle />
                 </span>
@@ -31,6 +35,7 @@ const Header = () => {
               <div
                 className="flex gap-2 items-center cursor-pointer"
                 onClick={() => {
+                  router.push("/");
                   setUserInfo();
                   deleteCookie("token");
                 }}
@@ -48,7 +53,9 @@ const Header = () => {
           )}
         </div>
         <div className="flex justify-between items-center lg:hidden">
-          <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
+          <Link href="/">
+            <Image src="/bitlogo.png" width={50} height={50} alt="logo" />
+          </Link>{" "}
           <Image
             src="/img/hamburger.png"
             width={20}

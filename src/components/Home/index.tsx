@@ -3,9 +3,6 @@ import React from "react";
 import Container from "../common/Container";
 import LiveMatchesCard from "../common/LiveMatchesCard";
 import { LiveHighlights } from "./LiveHighlights";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { TrendingHiglights } from "./TrendingHiglights";
 const Home = () => {
   const slickSettings = {

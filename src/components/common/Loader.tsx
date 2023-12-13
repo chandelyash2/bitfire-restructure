@@ -5,7 +5,7 @@ const img = "/home.jpg";
 export const Loader = () => {
   return (
     <div
-      className="fixed z-1 left-0 top-0 w-full h-full overflow-auto"
+      className="fixed z-1 left-0 top-0 w-full h-full overflow-auto bg-cover "
       style={{ backgroundImage: `url(${img})` }}
     >
       <div className="relative left-[40%] lg:left-[50%] top-[45%]">

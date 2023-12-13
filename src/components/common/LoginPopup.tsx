@@ -10,7 +10,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { PrimaryButton } from "./PrimaryButton";
 import Container from "./Container";
-import { useAuthUserLoginMutation } from "@/graphql/generated/schema";
+import {
+  MeDocument,
+  useAuthUserLoginMutation,
+} from "@/graphql/generated/schema";
 import { Toaster, toast } from "react-hot-toast";
 import { setCookies } from "@/utils/cookies";
 import { Loader } from "./Loader";
@@ -46,7 +49,7 @@ export const LoginPopup = () => {
       toast.error(output.error.message);
     }
     if (output?.user && output.token) {
-      setUserInfo(output.user);
+      setUserInfo(output.user)
       setCookies("token", output.token);
       setLoginActive(false);
       toast.success("User Logged In!!");

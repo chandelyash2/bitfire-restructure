@@ -11,16 +11,20 @@ import { CMSModal } from "@/context";
 import { LoginPopup } from "../LoginPopup";
 import { useMeQuery } from "@/graphql/generated/schema";
 import { Loader } from "../Loader";
+import { useRouter } from "next/navigation";
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export const Layout = ({ children }: LayoutProps) => {
   const { menuActive, loginActive, setUserInfo } = useContext(CMSModal);
+  const router = useRouter();
   const { data, loading } = useMeQuery();
+
   useEffect(() => {
     setUserInfo(data?.me?.user);
-  }, [data, setUserInfo]);
+  }, [data, loading, setUserInfo, router]);
+
   return (
     <div
       className={twMerge(

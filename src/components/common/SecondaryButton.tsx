@@ -2,16 +2,18 @@ import Link from "next/link";
 
 export interface ButtonProp {
   label: string;
-  link: string;
+  type: "button" | "submit";
+  onClick?: () => void;
 }
 
-export const SecondaryButton = ({ label, link }: ButtonProp) => {
+export const SecondaryButton = ({ label, type, onClick }: ButtonProp) => {
   return (
-    <Link
-      className={`flex rounded-xl bg-secondary items-center justify-center font-semibold p-2 lg:text-base min-w-[100px] hover:bg-primary`}
-      href={link}
+    <button
+      className={`flex rounded-xl bg-secondary items-center justify-center font-semibold p-2 lg:text-base min-w-[100px] hover:bg-primary w-full`}
+      type={type}
+      onClick={onClick}
     >
       {label}
-    </Link>
+    </button>
   );
 };
