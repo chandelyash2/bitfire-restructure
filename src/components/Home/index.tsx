@@ -4,25 +4,21 @@ import Container from "../common/Container";
 import LiveMatchesCard from "../common/LiveMatchesCard";
 import { LiveHighlights } from "./LiveHighlights";
 import { TrendingHiglights } from "./TrendingHiglights";
-const Home = () => {
-  const slickSettings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    autoplay: true,
-    slidesToShow: 3,
-  };
-  const arr = [1, 2, 3, 4];
-  return (
-    <Container>
-      <div className="flex flex-col gap-4">
-        <LiveHighlights />
-        <TrendingHiglights />
-        <LiveHighlights />
-        <LiveHighlights />
-      </div>
-    </Container>
-  );
+import { User } from "@/graphql/generated/schema";
+interface HomeProp {
+    authUser: User;
+}
+const Home = ({ authUser }: HomeProp) => {
+    return (
+        <Container>
+            <div className="flex flex-col gap-4">
+                <LiveHighlights />
+                <TrendingHiglights />
+                <LiveHighlights />
+                <LiveHighlights />
+            </div>
+        </Container>
+    );
 };
 
 export default Home;

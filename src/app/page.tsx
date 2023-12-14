@@ -1,10 +1,11 @@
 import Home from "@/components/Home";
 import { Layout } from "@/components/common/Layout";
+import { NextPageWithLayout } from "./layout";
+import { PageProps } from "../../.next/types/app/layout";
 
-export default function HomePage() {
-  return (
-    <Layout>
-      <Home />
+const HomePage: NextPageWithLayout<PageProps> = (authuser: any) => (
+    <Layout authUser={authuser} isPublic={true}>
+        <Home authUser={authuser} />
     </Layout>
-  );
-}
+);
+export default HomePage;

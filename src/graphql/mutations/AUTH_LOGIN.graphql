@@ -1,22 +1,22 @@
 mutation AuthUserLogin($input: AuthInput) {
-  authUserLogin(input: $input) {
-    error {
-      message
-      code
+    authUserLogin(input: $input) {
+        error {
+            message
+            code
+        }
+        token
+        user {
+            _id
+            availableCredit
+            bettingStatus
+            createdAt
+            creditLimit
+            loginStep
+            password
+            role
+            status
+            userName
+            transferStatus
+        }
     }
-    token
-    user {
-      _id
-      availableCredit
-      bettingStatus
-      createdAt
-      creditLimit
-      loginStep
-      password
-      role
-      status
-      userName
-      transferStatus
-    }
-  }
 }

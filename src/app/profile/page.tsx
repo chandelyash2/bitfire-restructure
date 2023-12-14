@@ -1,13 +1,14 @@
 import { Profile } from "@/components/Profile";
-import { SecondaryLayout } from "@/components/common/Layout/SecondaryLayout";
-import React from "react";
+import { Layout } from "@/components/common/Layout";
+import { NextPageWithLayout } from "../layout";
+import { PageProps } from "../../../.next/types/app/layout";
 
-const ProfilePage = () => {
-  return (
-    <SecondaryLayout>
-      <Profile />
-    </SecondaryLayout>
-  );
+const ProfilePage: NextPageWithLayout<PageProps> = (authuser: any) => {
+    return (
+        <Layout authUser={authuser} isPublic={false}>
+            <Profile authUser={authuser} />
+        </Layout>
+    );
 };
 
 export default ProfilePage;
