@@ -14,18 +14,15 @@ import { GiHorseHead } from "react-icons/gi";
 import { twMerge } from "tailwind-merge";
 
 const navList = [
-    {
-        name: "Home",
-        icon: <MdHome />,
-    },
+    // {
+    //     name: "Home",
+    //     icon: <MdHome />,
+    // },
     {
         name: "Live",
         icon: <MdOutlineLiveTv />,
     },
-    {
-        name: "Today",
-        icon: <MdToday />,
-    },
+
     {
         name: "Football",
         icon: <IoIosFootball />,
@@ -49,11 +46,11 @@ const navList = [
 ];
 
 const Navbar = () => {
-    const [active, setActive] = useState("Home");
+    const [active, setActive] = useState("Live");
     return (
         <div className="bg-header overflow-auto">
             <Container>
-                <div className="hidden lg:flex flex-wrap gap-12">
+                <div className="hidden lg:flex flex-wrap gap-12 ">
                     {navList.map(item => (
                         <span
                             key={item.name}

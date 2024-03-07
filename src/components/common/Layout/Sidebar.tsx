@@ -20,7 +20,7 @@ export const games = [
         icon: <MdOutlineSportsCricket />,
     },
     {
-        name: "Football",
+        name: "Soccer",
         icon: <IoIosFootball />,
     },
     {

@@ -1,22 +1,21 @@
-mutation AuthUserLogin($input: AuthInput) {
-    authUserLogin(input: $input) {
-        error {
-            message
-            code
-        }
-        token
-        user {
-            _id
-            availableCredit
-            bettingStatus
-            createdAt
-            creditLimit
-            loginStep
-            password
-            role
-            status
-            userName
-            transferStatus
-        }
+mutation AuthLogin($input: AuthInput) {
+  authLogin(input: $input) {
+    token
+    user {
+      _id
+      userName
+      status
+      role
+      availableCredit
+      creditLimit
+      transferStatus
+      bettingStatus
+      loginStep
+      createdAt
     }
+    error {
+      message
+      code
+    }
+  }
 }

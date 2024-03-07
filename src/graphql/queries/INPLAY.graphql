@@ -1,0 +1,30 @@
+query InPlay {
+  inPlay {
+    eventType {
+      id
+      name
+    }
+    event {
+      id
+      name
+      market {
+        marketId
+        marketName
+        runners {
+          selectionId
+          status
+          ex {
+            availableToBack {
+              price
+              size
+            }
+            availableToLay {
+              price
+              size
+            }
+          }
+        }
+      }
+    }
+  }
+}

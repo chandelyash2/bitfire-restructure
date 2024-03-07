@@ -11,7 +11,7 @@ export const MainHeader = ({ authUser }: HeaderProp) => {
     const pathName = usePathname();
     const isActive = isPathNameActive(pathName);
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col fixed w-full top-0">
             <Header authUser={authUser} />
             {!isActive && <Navbar />}
         </div>

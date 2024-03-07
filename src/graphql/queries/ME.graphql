@@ -1,18 +1,14 @@
 query Me {
-    me {
-        _id
-        userName
-        password
-        status
-        role
-        availableCredit
-        creditLimit
-        creditGivenToAgent
-        creditDistributedByAgent
-        creditGivenToUser
-        transferStatus
-        bettingStatus
-        loginStep
-        createdAt
-    }
+  me {
+    _id
+    userName
+    status
+    role
+    availableCredit
+    creditLimit
+    transferStatus
+    bettingStatus
+    loginStep
+    createdAt
+  }
 }

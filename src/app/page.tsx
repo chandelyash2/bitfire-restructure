@@ -1,9 +1,8 @@
 import Home from "@/components/Home";
 import { Layout } from "@/components/common/Layout";
-import { NextPageWithLayout } from "./layout";
-import { PageProps } from "../../.next/types/app/layout";
+import { User } from "@/graphql/generated/schema";
 
-const HomePage: NextPageWithLayout<PageProps> = (authuser: any) => (
+const HomePage = (authuser: any) => (
     <Layout authUser={authuser} isPublic={true}>
         <Home authUser={authuser} />
     </Layout>

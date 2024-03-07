@@ -1,9 +1,8 @@
 "use client";
-import { useAuthUserLoginMutation } from "@/graphql/generated/schema";
 import { setCookies } from "@/utils/cookies";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
@@ -14,6 +13,7 @@ import { Input } from "../common/Input";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useAuthLoginMutation } from "@/graphql/generated/schema";
 interface FormValues {
     userName: string;
     password: string;
@@ -24,9 +24,8 @@ const FormSchema = yup.object().shape({
     password: yup.string().required("Password is required"),
 });
 export const Login = () => {
-    const { setLoginActive } = useContext(CMSModal);
     const [viewPswd, setViewPswd] = useState(false);
-    const [login, { loading: loginLoading }] = useAuthUserLoginMutation();
+    const [login, { loading: loginLoading }] = useAuthLoginMutation();
     const {
         register,
         handleSubmit,
@@ -43,7 +42,7 @@ export const Login = () => {
                 },
             },
         });
-        const output = response.data?.authUserLogin;
+        const output = response.data?.authLogin;
         if (output?.error) {
             toast.error(output.error.message);
         } else {

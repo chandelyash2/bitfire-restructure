@@ -2,7 +2,6 @@ import type { Metadata, NextPage } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CMSContext } from "@/context";
-import { AppProps } from "next/app";
 import { Toaster } from "react-hot-toast";
 import { ReactElement, ReactNode } from "react";
 import { Provider } from "@/client/apollo";
